@@ -1,12 +1,12 @@
 package App.Model.ChessPieces;
 
-import App.Model.Collor;
+import App.Model.Color;
 
 public class Peon extends ChessPiece {
     private boolean isFirstMove = true;
 
-    public Peon(String imageIcon, Collor collor, int row, int column) {
-        super(imageIcon, collor, row, column);
+    public Peon(Color color, int row, int column) {
+        super("/home/lucas/xadrez/peao-"+color+".png", color, row, column);
     }
 
     @Override

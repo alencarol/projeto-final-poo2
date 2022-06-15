@@ -2,16 +2,17 @@ package App.View;
 
 import App.Model.ChessPieces.ChessPiece;
 
-import java.awt.*;
+import javax.swing.*;
 
-public class ChessPieceView extends Label {
+public class ChessPieceView extends JLabel {
     private ChessPiece piece;
 
     ChessPieceView(ChessPiece piece){
         this.piece = piece;
+        this.setIcon(new ImageIcon(piece.getImageIcon()));
     }
 
-    public ChessPiece getChessPieceView(){
+    public ChessPiece getChessPiece(){
         return this.piece;
     }
 

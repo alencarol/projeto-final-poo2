@@ -1,10 +1,10 @@
 package App.Model.ChessPieces;
 
-import App.Model.Collor;
+import App.Model.Color;
 
 public class Queen extends ChessPiece {
-    public Queen(String imageIcon, Collor collor, int row, int column) {
-        super(imageIcon, collor, row, column);
+    public Queen(Color color, int row, int column) {
+        super("/home/lucas/xadrez/rainha-"+color+".png", color, row, column);
     }
 
     @Override
