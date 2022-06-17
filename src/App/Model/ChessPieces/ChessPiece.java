@@ -12,12 +12,13 @@ public abstract  class ChessPiece {
 
     // toda peça tem um status de vida, no inicio do jogo todas estão com vida
     // toda peça pode ou não está selecionada, no inicio do jogo nenhuma peça está selecionada
-    private boolean lifeless , select = false;
+    private boolean captured , select = false;
 
     // A peça deve ter acesso ao tabuleiro, para obter algumas informações, pois a peça está inserida no tabuleiro.
     private ChessBoard chessboard;
 
     public ChessPiece(String imageIcon, Color color, int row, int column){
+
         this.imageIcon = imageIcon;
         this.color = color;
         this.row = row;
@@ -29,7 +30,7 @@ public abstract  class ChessPiece {
         this.chessboard = chessboard;
     }
 
-    public ChessBoard getChessboard(ChessBoard chessboard){
+    public ChessBoard getChessboard(){
         return this.chessboard;
     }
 
@@ -43,11 +44,11 @@ public abstract  class ChessPiece {
 
 
     public boolean isLifeless() {
-        return lifeless;
+        return captured;
     }
 
-    public void setLifeless(boolean lifeless) {
-        this.lifeless = lifeless;
+    public void setCaptured(boolean captured) {
+        this.captured = captured;
     }
 
     public boolean isSelect() {

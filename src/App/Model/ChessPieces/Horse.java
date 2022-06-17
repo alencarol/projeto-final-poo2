@@ -9,6 +9,27 @@ public class Horse extends ChessPiece {
 
     @Override
     public boolean ValidMovement(int rowDestination, int colunmDestination) {
-        return true;
+
+        int rowOrigin = this.getRow();
+        int colunmOrigin =  this.getColumn();
+
+
+        ChessPiece piece = this.getChessboard().getChessPiece( rowDestination,colunmDestination);
+        if (piece != null  && piece.getColor().equals(this.getColor())) {
+            return  false;
+        }
+
+
+        // Validação do comevimento do cavalo, nota o cavalo se move em L
+        if ( ( colunmDestination == colunmOrigin+1 || colunmDestination == colunmOrigin -1 ) && (rowDestination == rowOrigin+2 || rowDestination == rowOrigin-2)){
+            return  true;
+        }
+
+        if ( (colunmDestination == colunmOrigin+2  ||  colunmDestination == colunmOrigin -2) && (rowDestination == rowOrigin+1 || rowDestination == rowOrigin-1)){
+            return  true;
+        }
+
+
+        return false;
     }
 }

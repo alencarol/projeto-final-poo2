@@ -133,9 +133,13 @@ public class ChessBoard {
             if (this.chessPieceSelect.equals(piece)){
                 this.selectChessPiece(piece);
             } else{
-              if (piece == null || !piece.getColor().equals(this.chessPieceSelect.getColor())){
+              if (piece == null ){
                   this.movementChessPiece(this.chessPieceSelect,row,col);
               }
+
+                if (piece != null && !piece.getColor().equals(this.chessPieceSelect.getColor())){
+                    this.movementChessPiece(this.chessPieceSelect,row,col);
+                }
             }
         }
 
