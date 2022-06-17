@@ -6,7 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ChessMainView extends JFrame {
-    private static int dimensionWindow = 500;
+    private int dimensionWindow = 500;
+
 
     public ChessMainView(String title, int dimension){
         this.setTitle(title);

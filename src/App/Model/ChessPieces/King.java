@@ -9,6 +9,8 @@ public class King extends ChessPiece {
 
     @Override
     public boolean ValidMovement(int rowDestination, int colunmDestination) {
-        return true;
+
+        // Todo implentar o movimento do rei
+        return false;
     }
 }

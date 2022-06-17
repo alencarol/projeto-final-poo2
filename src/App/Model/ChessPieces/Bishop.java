@@ -9,6 +9,30 @@ public class Bishop extends ChessPiece {
 
     @Override
     public boolean ValidMovement(int rowDestination, int colunmDestination) {
-        return true;
+
+        int rowOrigin = this.getRow();
+        int colunmOrigin =  this.getColumn();
+        int column, row;
+
+
+        ChessPiece piece = this.getChessboard().getChessPiece( rowDestination,colunmDestination);
+        if (piece != null  && piece.getColor().equals(this.getColor())) {
+            return  false;
+        }
+
+        if (colunmDestination == colunmOrigin || rowDestination == rowOrigin) {
+            return  false;
+        }
+
+       column = Math.abs(colunmDestination - colunmOrigin);
+        row = Math.abs(rowDestination - rowOrigin);
+
+        if (column == row) {
+            return  true;
+        }
+
+
+
+        return false;
     }
 }
