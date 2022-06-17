@@ -4,7 +4,7 @@ import App.Model.Color;
 
 public class King extends ChessPiece {
     public King(Color color, int row, int column) {
-        super("/home/lucas/xadrez/rei-"+color+".png", color, row, column);
+        super("./src/App/img/rei-"+color+".png", color, row, column);
     }
 
     @Override
