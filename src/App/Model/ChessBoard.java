@@ -5,23 +5,25 @@ import App.Model.ChessPieces.*;
 import javax.swing.*;
 
 public class ChessBoard {
+    private int dimension = 8;
     private ChessPiece[][] boardGame;
     private ChessPiece chessPieceSelect = null;
     private Color turnMovement = Color.white;  // o primeiro movimento sempre é das peças brancas
 
     // Os jogadores tem um tempo para movimenta as peças
-    private static int PlayTime = 10000;
+    private  int playTime;
 
-    public ChessBoard(int dimension){
+    public ChessBoard(){
         // criando a matriz que é a essencia do tabuleiro
         this.boardGame = new ChessPiece[dimension][dimension];
+        this.setPlayTime(10); // 10 minutos para cada jogador 600000, 10s 10000
         this.buildChessPiece();
     }
 
     public ChessPiece getChessPiece(int rowChessPiece, int colunmChessPiece){
         return this.boardGame[rowChessPiece][colunmChessPiece];
     }
-
+    
     private void  addChessPiece(ChessPiece piece){
         // as peças no xadrez tem possição definidas no tabuleiro
         this.boardGame[piece.getRow()][piece.getColumn()] = piece;
@@ -119,29 +121,40 @@ public class ChessBoard {
     // buildPlay controir a jogadar
     public void buildPlay(int row, int col) {
         // captura a peça selecionada
-        ChessPiece piece = this.getChessPiece(row,col);
+        ChessPiece piece = this.getChessPiece(row, col);
 
-        if  ( this.chessPieceSelect == null && piece != null && !piece.getColor().equals(turnMovement)){
+        if (this.chessPieceSelect == null && piece != null && !piece.getColor().equals(turnMovement)) {
             JOptionPane.showMessageDialog(null, "Não é sua vez de jogar", "Informação", JOptionPane.INFORMATION_MESSAGE);
             return;
         }
 
         // Realizar as verifiações necessarias para selecionar peça da joga e realizar o movimento
-        if ((this.chessPieceSelect == null) && (piece != null && piece.getColor().equals(turnMovement))){
+        // Realizar as verifiações necessarias para selecionar peça da joga e realizar o movimento
+        if ((this.chessPieceSelect == null) && (piece != null && piece.getColor().equals(turnMovement))) {
+            this.selectChessPiece(piece);
+        } else {
+            if (this.chessPieceSelect.equals(piece)) {
                 this.selectChessPiece(piece);
-        }else{
-            if (this.chessPieceSelect.equals(piece)){
-                this.selectChessPiece(piece);
-            } else{
-              if (piece == null ){
-                  this.movementChessPiece(this.chessPieceSelect,row,col);
-              }
-
-                if (piece != null && !piece.getColor().equals(this.chessPieceSelect.getColor())){
-                    this.movementChessPiece(this.chessPieceSelect,row,col);
+            } else {
+                if (piece == null || !piece.getColor().equals(this.chessPieceSelect.getColor())) {
+                    this.movementChessPiece(this.chessPieceSelect, row, col);
                 }
             }
+
+
         }
 
+    }
+
+    public int getPlayTime() {
+        return playTime;
+    }
+
+    public void setPlayTime(int playTime) {
+        this.playTime = playTime;
+    }
+
+    public Color getTurnMovement(){
+        return  this.turnMovement;
     }
 }
