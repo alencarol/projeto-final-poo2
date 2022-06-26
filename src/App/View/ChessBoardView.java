@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
 public class ChessBoardView extends JPanel implements MouseListener {
     private ChessBoard chessBoard;
     // A dimenção do tabuleiro de xadrez é 8 x 8, isto é 8 linhas e 8 colunas
-    private  int dimension = 8;
+    private int dimension = 8;
 
     ChessBoardView(ChessBoard chessBoard){
         this.chessBoard = chessBoard;
@@ -36,7 +36,7 @@ public class ChessBoardView extends JPanel implements MouseListener {
                     // é passado a peça para a sua celula ou casa
                     cellView = new ChessCellView(new ChessPieceView(piece));
                 }else{
-                    // caso não exista uma peça
+                    // caso não exista uma peça cria vazia a celula ou casa
                     cellView = new ChessCellView(row, col);
                 }
 
@@ -50,6 +50,7 @@ public class ChessBoardView extends JPanel implements MouseListener {
                 cellView.addMouseListener(this);
             }
         }
+
         // Força a atualização da tela
         this.revalidate();
     }

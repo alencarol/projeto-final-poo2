@@ -8,6 +8,7 @@ public class ChessBoard {
     private int dimension = 8;
     private ChessPiece[][] boardGame;
     private ChessPiece chessPieceSelect = null;
+    private Boolean existMovement = false;
     private Color turnMovement = Color.white;  // o primeiro movimento sempre é das peças brancas
 
     // Os jogadores tem um tempo para movimenta as peças
@@ -94,8 +95,8 @@ public class ChessBoard {
     }
 
     public void  movementChessPiece(ChessPiece piece, int row, int colunm){
-        if (piece.ValidMovement(row,colunm)) {
-            this.removeChessPiece(piece);
+        if (piece.ValidMovement(row,colunm)) { // true
+            this.removeChessPiece(piece); // remover
             // Atualizar a referencia
             piece.setRow(row);
             piece.setColunm(colunm);
@@ -103,18 +104,17 @@ public class ChessBoard {
             this.addChessPiece(piece);
             this.selectChessPiece(piece);
             this.setTurnMovement();
+            this.existMovement = true;
         }
 
     }
 
     public void  setTurnMovement(){
         // se a jogada atual for das peças brancas, a proxima é das pretas
-        if (turnMovement.equals(Color.white)) {
-            this.turnMovement = Color.black;
-        }else{
-            this.turnMovement = Color.white;
+        switch (turnMovement){
+            case white -> this.turnMovement = Color.black;
+            case black -> this.turnMovement = Color.white;
         }
-
     }
 
 
@@ -156,5 +156,13 @@ public class ChessBoard {
 
     public Color getTurnMovement(){
         return  this.turnMovement;
+    }
+
+    public boolean getExistMovement(){
+        return  this.existMovement;
+    }
+
+    public void setExistMovement(boolean existMovement){
+        this.existMovement = existMovement;
     }
 }

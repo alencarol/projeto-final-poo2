@@ -1,9 +1,10 @@
 package App;
 
-import App.View.ChessMainView;
+import App.View.MainView;
 
 public class Main {
+
     public static void main(String[] args) {
-        new ChessMainView("xadrez bruxo");
+        new MainView();
     }
 }

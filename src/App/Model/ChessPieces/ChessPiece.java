@@ -6,6 +6,7 @@ import App.Model.Color;
 // ChessPiece é uma classe que não vai poder gerar objetos, pois é abstrata, vai servir apenas
 // como modelo para construção de outras classes
 public abstract  class ChessPiece {
+    protected String caminhoImagem = "./src/App/img/";
     private Color color; // toda peça tem uma cor
     private int row, column; // toda peça tem uma posição no tabuleiro
     private String imageIcon; // toda peça tem uma imagem

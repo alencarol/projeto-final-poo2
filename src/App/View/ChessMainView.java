@@ -26,14 +26,13 @@ public class ChessMainView extends JFrame {
         this.Menu();
         this.barProgressTime();
 
-        this.timeGame =new TimeGame(chessBoardView, this.barProgressTime);
+        this.timeGame =new TimeGame(this.chessBoardView, this.barProgressTime);
         // Controlar execução da Thread
         Thread threadTime = new Thread(timeGame);
 
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         threadTime.start();
         this.pack();
-
     }
 
     public void Menu(){
@@ -63,8 +62,9 @@ public class ChessMainView extends JFrame {
         barProgressTime = new JProgressBar();
         barProgressTime.setMinimum(0);
         barProgressTime.setMaximum(10);
-        this.add(barProgressTime,BorderLayout.SOUTH);
+        this.add(barProgressTime,BorderLayout.NORTH);
     }
+
 
     private void resetGame(){
         this.timeGame.resetTime();

@@ -31,8 +31,6 @@ public class Bishop extends ChessPiece {
             return  true;
         }
 
-
-
         return false;
     }
 }
