@@ -9,7 +9,7 @@ public class ChessPieceView extends JLabel {
 
     ChessPieceView(ChessPiece piece){
         this.piece = piece;
-        this.setIcon(new ImageIcon(piece.getImageIcon()));
+        this.setIcon(new ImageIcon(piece.getUrlImage()));
     }
 
     public ChessPiece getChessPiece(){
