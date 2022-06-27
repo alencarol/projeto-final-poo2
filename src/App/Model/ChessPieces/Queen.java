@@ -4,7 +4,7 @@ import App.Model.Color;
 
 public class Queen extends ChessPiece {
     public Queen(Color color, int row, int column) {
-        super("./src/App/img/rainha-"+color+".png", color, row, column);
+        super("queen", color, row, column);
     }
 
     @Override

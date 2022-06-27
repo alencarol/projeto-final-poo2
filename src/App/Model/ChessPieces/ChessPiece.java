@@ -8,7 +8,8 @@ import App.Model.Color;
 public abstract  class ChessPiece {
     private Color color; // toda peça tem uma cor
     private int row, column; // toda peça tem uma posição no tabuleiro
-    private String imageIcon; // toda peça tem uma imagem
+
+    private String urlImage;
 
     // toda peça tem um status de vida, no inicio do jogo todas estão com vida
     // toda peça pode ou não está selecionada, no inicio do jogo nenhuma peça está selecionada
@@ -17,9 +18,8 @@ public abstract  class ChessPiece {
     // A peça deve ter acesso ao tabuleiro, para obter algumas informações, pois a peça está inserida no tabuleiro.
     private ChessBoard chessboard;
 
-    public ChessPiece(String imageIcon, Color color, int row, int column){
-
-        this.imageIcon = imageIcon;
+    public ChessPiece(String name, Color color, int row, int column){
+        this.urlImage = "./src/App/img/"+name+"-"+color+".png";
         this.color = color;
         this.row = row;
         this.column = column;
@@ -66,9 +66,8 @@ public abstract  class ChessPiece {
     // ValidMovement é um metodo que vai ser implementado nas sub classes
     public  abstract boolean ValidMovement(int rowDestination, int colunmDestination);
 
-
-    public String getImageIcon() {
-        return imageIcon;
+    public String getUrlImage() {
+        return urlImage;
     }
 
     public void setRow(int row) {

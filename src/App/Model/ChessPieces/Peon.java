@@ -7,7 +7,7 @@ public class Peon extends ChessPiece {
     private boolean isFirstMove = true;
 
     public Peon(Color color, int row, int column) {
-        super("./src/App/img/peao-"+color+".png", color, row, column);
+        super("peon", color, row, column);
     }
 
     @Override

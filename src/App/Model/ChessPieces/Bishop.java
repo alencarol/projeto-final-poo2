@@ -4,7 +4,7 @@ import App.Model.Color;
 
 public class Bishop extends ChessPiece {
     public Bishop(Color color, int row, int column) {
-        super("./src/App/img/bispo-"+color+".png", color, row, column);
+        super("bishop", color, row, column);
     }
 
     @Override

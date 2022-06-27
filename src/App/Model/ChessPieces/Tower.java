@@ -4,7 +4,7 @@ import App.Model.Color;
 
 public class Tower extends ChessPiece {
     public Tower(Color color, int row, int column) {
-        super("./src/App/img/torre-"+color+".png", color, row, column);
+        super("tower", color, row, column);
     }
 
     @Override
