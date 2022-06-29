@@ -11,7 +11,7 @@ import java.awt.event.MouseListener;
 public class ChessBoardView extends JPanel implements MouseListener {
     private ChessBoard chessBoard;
     // A dimenção do tabuleiro de xadrez é 8 x 8, isto é 8 linhas e 8 colunas
-    private static int dimension = 8;
+    private int dimension = 8;
 
     ChessBoardView(ChessBoard chessBoard){
         this.chessBoard = chessBoard;
@@ -19,7 +19,7 @@ public class ChessBoardView extends JPanel implements MouseListener {
     }
 
     // A cada movimento a interface é construida
-    private void buildChessBoardView(){
+    public void buildChessBoardView(){
         this.removeAll();
         // Como o xadrez possui um formato de uma tabela de 8x8, usa-se o gridLayout,
         // Para modelar tabuleiro na interface gráfica
@@ -36,7 +36,7 @@ public class ChessBoardView extends JPanel implements MouseListener {
                     // é passado a peça para a sua celula ou casa
                     cellView = new ChessCellView(new ChessPieceView(piece));
                 }else{
-                    // caso não exista uma peça
+                    // caso não exista uma peça cria vazia a celula ou casa
                     cellView = new ChessCellView(row, col);
                 }
 
@@ -50,6 +50,7 @@ public class ChessBoardView extends JPanel implements MouseListener {
                 cellView.addMouseListener(this);
             }
         }
+
         // Força a atualização da tela
         this.revalidate();
     }
@@ -63,6 +64,16 @@ public class ChessBoardView extends JPanel implements MouseListener {
         // Recontroi o tabuleiro
         this.buildChessBoardView();
 
+    }
+
+    public  ChessBoard getChessBoard(){
+        return  this.chessBoard;
+    }
+
+
+
+    public void setChessBoard(ChessBoard chessBoard){
+        this.chessBoard = chessBoard;
     }
 
     @Override
