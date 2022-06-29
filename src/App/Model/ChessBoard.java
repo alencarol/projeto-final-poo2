@@ -17,7 +17,7 @@ public class ChessBoard {
     public ChessBoard(){
         // criando a matriz que é a essencia do tabuleiro
         this.boardGame = new ChessPiece[dimension][dimension];
-        this.setPlayTime(10); // 10 minutos para cada jogador 600000, 10s 10000
+        this.setPlayTime(10);
         this.buildChessPiece();
     }
 
